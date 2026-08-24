@@ -1,0 +1,51 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9.15.9
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build workspace packages
+        run: pnpm build:packages
+
+      - name: Lint
+        run: pnpm --filter web lint
+
+      - name: Typecheck
+        run: pnpm -r typecheck
+
+      - name: Unit tests
+        run: pnpm -r test
+
+      - name: Build web
+        run: pnpm --filter web build
+        env:
+          AUTH_SECRET: ci-placeholder-secret-ci-placeholder
+          AUTH_GITHUB_ID: ci-placeholder
+          AUTH_GITHUB_SECRET: ci-placeholder
+          DATABASE_URL: postgres://ci:ci@localhost:5432/ci
+          REALTIME_JWT_SECRET: ci-placeholder-secret
+          INTERNAL_SYNC_SECRET: ci-placeholder-secret
+          SYNC_SERVER_INTERNAL_URL: http://localhost:1234
+          GEMINI_API_KEY: ci-placeholder
+
+      - name: Build sync-server
+        run: pnpm --filter sync-server build
