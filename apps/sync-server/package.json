@@ -1,0 +1,32 @@
+{
+  "name": "sync-server",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc -p tsconfig.build.json",
+    "start": "node dist/index.js",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@hocuspocus/extension-throttle": "^4.6.0",
+    "@hocuspocus/server": "^4.6.0",
+    "@local-first-docs/db": "workspace:*",
+    "@local-first-docs/shared": "workspace:*",
+    "@tiptap/core": "^3.30.2",
+    "@tiptap/y-tiptap": "^3.0.9",
+    "dotenv": "^17.4.2",
+    "drizzle-orm": "^0.45.2",
+    "ws": "^8.21.3",
+    "yjs": "^13.6.32"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/ws": "^8.18.1",
+    "tsx": "^4.23.12",
+    "typescript": "^5.9.3",
+    "vitest": "^3.2.7"
+  }
+}
