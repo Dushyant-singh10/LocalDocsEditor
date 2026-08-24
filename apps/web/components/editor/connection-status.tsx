@@ -14,9 +14,9 @@ const CONFIG: Record<ConnectionState, { label: string; icon: React.ComponentType
 export function ConnectionStatus({ state }: { state: ConnectionState }) {
   const { label, icon: Icon, className } = CONFIG[state];
   return (
-    <div className={cn("flex items-center gap-1.5 text-xs font-medium", className)}>
-      <Icon className={cn("size-3.5", state === "connecting" && "animate-spin")} />
-      <span>{label}</span>
+    <div className={cn("flex items-center gap-1.5 text-xs font-medium shrink-0", className)} title={label}>
+      <Icon className={cn("size-3.5 shrink-0", state === "connecting" && "animate-spin")} />
+      <span className="hidden md:inline whitespace-nowrap">{label}</span>
     </div>
   );
 }
