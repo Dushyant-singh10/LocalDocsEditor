@@ -160,8 +160,9 @@ export function EditorClient({
           value={title}
           disabled={!editable}
           onChange={(e) => onTitleChange(e.target.value)}
-          className="min-w-0 flex-1 max-w-sm border-none shadow-none text-base font-medium focus-visible:ring-1"
+          className="min-w-0 max-w-sm border-none shadow-none text-base font-medium focus-visible:ring-1"
         />
+        <div className="flex-1 min-w-0" />
         <div className="flex items-center gap-3 shrink-0">
           <ConnectionStatus state={connectionState()} />
           <CollaboratorAvatars users={awareUsers ?? []} />
