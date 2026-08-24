@@ -1,9 +1,8 @@
 // Submission requirement: name + GitHub + LinkedIn must appear in the app
-// footer. Fill in the three constants below with your real details before
-// submitting/deploying.
-const AUTHOR_NAME = "YOUR NAME";
-const GITHUB_URL = "https://github.com/YOUR_USERNAME";
-const LINKEDIN_URL = "https://linkedin.com/in/YOUR_USERNAME";
+// footer.
+const AUTHOR_NAME = "Dushyant Singh";
+const GITHUB_URL = "https://github.com/Dushyant-singh10/LocalDocsEditor";
+const LINKEDIN_URL = "https://www.linkedin.com/in/dushyant-singh-030175376/";
 
 export function Footer() {
   return (
