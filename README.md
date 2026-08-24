@@ -1,5 +1,7 @@
 # Local-First Docs
 
+**Live app:** https://local-docs-editor-web.vercel.app
+
 A local-first, collaborative document editor with offline synchronization, deterministic
 conflict resolution (CRDT via Yjs), and granular version history with safe time-travel restore.
 
