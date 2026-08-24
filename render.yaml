@@ -1,0 +1,21 @@
+services:
+  - name: local-first-docs-sync
+    type: web
+    runtime: docker
+    plan: free
+    dockerfilePath: ./apps/sync-server/Dockerfile
+    dockerContext: .
+    healthCheckPath: /
+    envVars:
+      # Set these in the Render dashboard after the first deploy — they must
+      # match the values used by apps/web on Vercel exactly (same DB, same
+      # shared secrets). `sync: false` just means "don't auto-generate,
+      # prompt for a value" — Render still stores whatever you enter.
+      - key: DATABASE_URL
+        sync: false
+      - key: REALTIME_JWT_SECRET
+        sync: false
+      - key: INTERNAL_SYNC_SECRET
+        sync: false
+      # PORT is injected automatically by Render for web services — the app
+      # already reads process.env.PORT, no need to set it here.
