@@ -1,0 +1,20 @@
+node_modules/
+dist/
+.next/
+.turbo/
+*.tsbuildinfo
+
+.env
+.env.local
+.env.*.local
+
+apps/web/e2e/.auth/
+apps/web/playwright-report/
+apps/web/test-results/
+
+*.log
+.DS_Store
+
+# Claude Code's local session/permission settings — machine-specific, not
+# part of the project itself.
+.claude/

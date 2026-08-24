@@ -1,0 +1,20 @@
+{
+  "name": "local-first-docs",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "build:packages": "pnpm --filter @local-first-docs/shared build && pnpm --filter @local-first-docs/db build",
+    "dev": "pnpm build:packages && pnpm --filter web dev",
+    "dev:sync": "pnpm build:packages && pnpm --filter sync-server dev",
+    "build": "pnpm build:packages && pnpm --filter web build && pnpm --filter sync-server build",
+    "lint": "pnpm -r lint",
+    "typecheck": "pnpm -r typecheck",
+    "test": "pnpm -r test",
+    "db:generate": "pnpm --filter @local-first-docs/db generate",
+    "db:migrate": "pnpm --filter @local-first-docs/db migrate"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "packageManager": "pnpm@9.15.9"
+}
